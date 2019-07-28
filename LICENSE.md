@@ -7,7 +7,9 @@ This license forbids from doing the following information;
  * Modifying this software for non-private usage.
  * Re-Distributing this software.
  * Claiming this software as your own.
+ 
  As well as permits you to;
+ 
  * Modify this software for private usage.
  * Use this software as/is.
  * Modify the software publicly with permission from the original creator.
