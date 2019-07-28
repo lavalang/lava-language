@@ -14,5 +14,6 @@ This license forbids from doing the following information;
  * Use this software as/is.
  * Modify the software publicly with permission from the original creator.
  
- This software is free to use for anyone abiding by the Lunar License terms.
+ #### This software is free to use for anyone abiding by the Lunar License terms.
+ 
  Lava Language © 2019 astronomize
