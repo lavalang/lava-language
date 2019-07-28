@@ -1,0 +1,5 @@
+class PrintHelloWorld: {
+  function PrintHelloWorld(): {
+    print: "Hello, World" // prints "Hello, World!" to the output.
+  }
+}
