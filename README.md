@@ -1,4 +1,4 @@
-<h1>Lava Language</h1>
-<body>
-  Lava is a programming language for storage and configuration.
-</body>
+# Lava Language
+The lava language is a simple programming language for storing configurations and values.
+
+To learn more, check out the wiki [here](https://github.com/lavalang/lava-language/wiki/).
