@@ -9,7 +9,11 @@ import lava.lang.util.LavaFile;
 
 public class Parser {
 	
-	public static HashMap<String, LavaObject> parse(LavaFile code) {
+	/**
+	 * returns a hashmap with all the keys and values of a lava file.
+	 * @since version 1.0.0
+	 */
+	public static HashMap<String, LavaValue> parse(LavaFile code) {
 		Tokenizer tokenizer = new Tokenizer(code.getCode());
 		ArrayList<Token> tokens = new ArrayList<>();
 		while (tokenizer.hasNextToken()) {
@@ -20,20 +24,20 @@ public class Parser {
 		
 	}
 	
-	private static HashMap<String, LavaObject> parse(ArrayList<Token> toParse) {
+	private static HashMap<String, LavaValue> parse(ArrayList<Token> toParse) {
 		
-		HashMap<String, LavaObject> objs = new HashMap<>();
+		HashMap<String, LavaValue> objs = new HashMap<>();
 		
 		for(Token t : toParse) {
 			if(t.getType() == TokenType.IDENTIFIER) {
 				
-				String key = t.getToken(); // the key of the object
+				String key = t.getToken();
 				
 				try {
 					if(toParse.get(toParse.indexOf(t) + 1) != null) {
 						Token nextToken = toParse.get(toParse.indexOf(t) + 1); 
 						
-						if(nextToken.getToken().equals("=")) { // checks if there is an '=' in between the object and the key.
+						if(nextToken.getToken().equals("=")) { 
 							if(toParse.get(toParse.indexOf(nextToken) + 1) != null) {
 								nextToken = toParse.get(toParse.indexOf(nextToken) + 1);
 								
@@ -41,13 +45,13 @@ public class Parser {
 										nextToken.getType() == TokenType.BOOLEAN || nextToken.getType() == TokenType.STRING) {
 									if(!(objs.containsKey(key))) {
 										if(nextToken.getType() == TokenType.BOOLEAN) {
-											objs.put(key, new LavaObject(nextToken.getToken(), ObjectType.BOOLEAN));
+											objs.put(key, new LavaValue(nextToken.getToken(), ObjectType.BOOLEAN));
 										}
 										if(nextToken.getType() == TokenType.STRING) {
-											objs.put(key, new LavaObject(nextToken.getToken(), ObjectType.STRING));
+											objs.put(key, new LavaValue(nextToken.getToken(), ObjectType.STRING));
 										}
 										if(nextToken.getType() == TokenType.INTEGER) {
-											objs.put(key, new LavaObject(nextToken.getToken(), ObjectType.INTEGER));
+											objs.put(key, new LavaValue(nextToken.getToken(), ObjectType.INTEGER));
 										}
 									} else {
 										System.err.println("The object " + key + " already exists!");
